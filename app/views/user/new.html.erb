@@ -1,0 +1,9 @@
+<h1 >Welcome to Collabo the leading creative Collaboration site !</h1>
+<h1 style= 'color:green' > Register to find a Collabo</h1>
+
+
+<%= form_tag("/users") do %>
+<%= label_tag "Email" %>
+<%= text_field_tag "email" %>
+<%= submit_tag "Register" %>
+<% end %>
