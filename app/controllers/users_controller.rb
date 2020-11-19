@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
     def new
+        if session[:current_user_id]
+            redirect_to "/"
+        end
     end 
 
     def create

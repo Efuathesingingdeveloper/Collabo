@@ -1,4 +1,7 @@
 <h1 style= 'color:green' > LOGIN </h1>
+<% if flash[:notice] %>
+<h2><%= flash[:notice] %></h2>
+<% end %>
 
 
 <%= form_tag("/sessions") do %>
