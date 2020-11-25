@@ -15,6 +15,7 @@
   <% if session[:current_user_id] %>
   <nav>
 Welcome to Collabo, <%= @current_user.email %>
+<a href="/logout">Logout"</a>
   </nav>
   <% end %>
   <%= yield %>
