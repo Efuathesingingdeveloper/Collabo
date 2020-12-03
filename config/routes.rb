@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
 
   get  '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  post '/sessions', to: 'sessions#create'
 
   get "/logout", to: 'sessions#destroy'
-  
-  get  '/', to: 'application#home'
+
+ resources :collabos
+ 
+  root 'application#home'
 end
