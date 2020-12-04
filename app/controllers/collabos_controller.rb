@@ -4,7 +4,7 @@ class CollabosController < ApplicationController
     end 
 
     def index
-       @collabo = Collabo.all
+       @collabo = Collabo.by_status(:open)
     end
 
     def create 
@@ -17,4 +17,19 @@ class CollabosController < ApplicationController
 
         end 
     end 
+
+    def show 
+        @collabo = Collabo.find(params[:id])
+    end 
+
+    def update
+        @collabo = Collabo.find(params[:id])
+        if @collabo.accepted_by(current_user)
+        redirect_to @collabo
+        else
+          render :show  
+        end
+    end
+    private
+    # params.require(:user).permit(:name, :email)
 end

@@ -1,0 +1,10 @@
+<h1><%=@collabo.kind%></h1>
+<h2>Requested By <%=@collabo.requestor_user.email%></h2>
+<% if @collabo.accepted? %>
+<h3 style="color:green;" > Accepted by <%=@collabo.responder_user.email%> </h3>
+<% else %>
+
+ <%= form_for(@collabo) do |f| %>
+<%= f.submit " Accept this Collab Request" %>
+<% end %>
+ <% end %>

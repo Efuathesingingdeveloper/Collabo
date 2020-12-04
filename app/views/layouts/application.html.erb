@@ -10,13 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
-  <% if logged_in? %>
+
+
   <nav>
-Welcome to Collabo, <%= @current_user.email %>
-<a href="/logout">Logout"</a>
-  </nav>
-  <% end %>
+  <section>
+  <%= link_to_unless_current "Open Collabs", collabos_path %>
+  </section>
+  <section class="utility">
+  <% if session[:current_user_id] %>
+ You are logged in as: <%= @current_user.email %> | <a href="/logout">Logout</a>
+ <% else %>
+ <%= link_to_unless_current "Login", login_path %> 
+ <br>
+ <%= link_to_unless_current "Register", register_path %>
+ <% end %>
+ </section>
+ </nav>
+
   <%= yield %>
+  </body>
 </html>

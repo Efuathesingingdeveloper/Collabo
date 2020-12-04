@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-Include ApplicationHelper::SessionsHelper
+include ApplicationHelper::SessionsHelper
 
     def home
     end

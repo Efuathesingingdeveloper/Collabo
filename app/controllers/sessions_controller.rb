@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
        @user = User.find_by(:email => params[:email]) 
        if @user
         login(@user)
-          redirect '/'
+          redirect_to '/'
        else redirect_to "login", :notice => "Cannot find that email"
        end 
     end

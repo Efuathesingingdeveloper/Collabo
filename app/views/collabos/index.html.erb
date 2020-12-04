@@ -1,5 +1,7 @@
-<h1> Collabs </h1>
-<% @collabos.each do |c| %>
-    <li><%= c.kind  %></li>
-
+<h1> Collab requests </h1>
+<ol>
+<% @collabo.each do |c| %>
+    <li><%= link_to "#{c.kind} from #{c.requestor_user.email}", collabo_path(c) %></li>
     <% end %>
+</ol>
+
