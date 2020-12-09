@@ -15,7 +15,14 @@
   <nav>
   <section>
   <%= link_to_unless_current "Open Collabs", collabos_path %>
+  <br>
+  <%= link_to_unless_current "Request a new collab", new_collabo_path %>
+  <br>
+  <%= link_to_unless_current "Home", root_path %>
+
   </section>
+
+  
   <section class="utility">
   <% if session[:current_user_id] %>
  You are logged in as: <%= @current_user.email %> | <a href="/logout">Logout</a>

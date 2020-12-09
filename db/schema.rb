@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_175810) do
+ActiveRecord::Schema.define(version: 2020_12_04_164259) do
 
   create_table "collabos", force: :cascade do |t|
     t.string "kind"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_175810) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end
