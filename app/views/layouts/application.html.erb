@@ -25,7 +25,7 @@
   
   <section class="utility">
   <% if session[:current_user_id] %>
- You are logged in as: <%= @current_user.email %> | <a href="/logout">Logout</a>
+  <%= link_to_unless_current "Logout", logout_path %> 
  <% else %>
  <%= link_to_unless_current "Login", login_path %> 
  <br>
