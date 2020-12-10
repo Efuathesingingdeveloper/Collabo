@@ -9,12 +9,13 @@ class CollabosController < ApplicationController
 
     def create 
         @collabo = Collabo.new
-        @collabo.kind = params["kind"]
+        @collabo.title = params["title"]
+        @collabo.description = params["description"]
         @collabo.requestor_user_id = current_user.id
         if @collabo.save 
             redirect_to "/collabos"
         else 
-
+            render :new
         end 
     end 
 

@@ -1,10 +1,14 @@
-<h1><%=@collabo.kind%></h1>
+<h1><%= @collabo.title%></h1>
 <h2>Requested By <%=@collabo.requestor_user.email%></h2>
 <% if @collabo.accepted? %>
 <h3 style="color:green;" > Accepted by <%=@collabo.responder_user.email%> </h3>
 <% else %>
-
  <%= form_for(@collabo) do |f| %>
+    <%= if @collabo.errors[:responder_user].any?%>
+      
+   <p> You cannot pair with yourself</p>
+ 
+<% end  %>
 <%= f.submit " Accept this Collab Request" %>
 <% end %>
  <% end %>

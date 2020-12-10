@@ -1,8 +1,27 @@
-<h1>Request a Pair</h1>
+<h1>Request a Collab !</h1>
 
 <%= form_tag("/collabos") do %>
-<%= label_tag "kind" %>
-<%= text_field_tag "kind" %>
 
+<p>
+<%= label_tag "title","Title:" %>
+    <% if @collabo && @collabo.errors[:title] %>
+    <% @collabo.errors.full_messages_for(:title).each do |message| %>
+    <p style= 'color:red'><%= message %></p>
+<% end %>
+<% end %>
+
+<%= text_field_tag "title" %>
+</p>
+
+<p>
+    <%= label_tag "description","Description:" %>
+    <% if @collabo && @collabo.errors[:description] %>
+    <% @collabo.errors.full_messages_for(:description).each do |message| %>
+    <p style= 'color:red'><%= message %></p>
+<% end %>
+<% end  %>
+    <%= text_area_tag "description" %>
+
+</p>
 <%= submit_tag %>
  <% end  %>

@@ -10,9 +10,10 @@
 
 <p>
 <%= label_tag "password",  "Password:"%>
+<%= text_field_tag "password" %>
+
 <% if @user && @user.errors[:password] %>
 <pstyle= 'color:red'>Please include a password</p>
-<%= password_field_tag "password" %>
 <% end %>
 </p>
 

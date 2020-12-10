@@ -9,9 +9,17 @@ class Collabo < ApplicationRecord
             where.not(:responder_user => nil)
         end
     end
+    validates :title, :length => {in: 4..200}
+    validates :description, :presence => true
+
 
     def accepted_by(user)
+        if user == self.requestor_user
+            self.errors.add(:responder_user, "You Cant collab with youself")
+            return false
+        else
        self.update(:responder_user => user)
+        end
     end
 
     def accepted?
