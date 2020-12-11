@@ -11,13 +11,15 @@ class Collabo < ApplicationRecord
     end
     validates :title, :length => {in: 4..200}
     validates :description, :presence => true
+    validates :different_responder
 
+    def different_responder
+        if self.responder_user == self.requestor_user
+            self.errors.add(:responder_user)
+        end
+    end
 
     def accepted_by(user)
-        if user == self.requestor_user
-            self.errors.add(:responder_user, "You Cant collab with youself")
-            return false
-        else
        self.update(:responder_user => user)
         end
     end
